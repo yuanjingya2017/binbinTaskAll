@@ -29,7 +29,6 @@
 
 <script type="text/javascript">
 
-
 /**
  * getData方法
  * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
@@ -42,14 +41,14 @@ function getData() {
 	for(var i=0;i<cnodes.length;i++){
 		if(cnodes[i].tagName=='LI'){
 			var inner = cnodes[i].innerText ;
-			var clip1 = inner.slice(0,-2);
-			var clip2 = inner.slice(-2);
-			data[a++] = [clip1,clip2] ;
+//			var clip1 = inner.slice(0,-2);
+//			var clip2 = inner.slice(-2);
+//			data[a++] = [clip1,clip2] ;
+                        data[a++] = inner.split('：') ;
 		}
 	}
  return data ;
 }
-
 
 /**
  * sortAqiData
@@ -62,8 +61,7 @@ function sortAqiData(data) {
 	}) ;
 	return data ;
 }
-
-
+	
 /**
  * render
  * 将排好序的城市及空气质量指数，输出显示到id位resort的列表中
@@ -85,6 +83,7 @@ var aqiData = getData();
 aqiData = sortAqiData(aqiData);
 render(aqiData);
 }
+
 function init() {
 
   // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
