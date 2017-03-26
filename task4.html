@@ -14,23 +14,21 @@
 		<div id="arr_diaplay">
 		</div>
 		<script type="text/javascript">
-			function left_push(){
-				var text1 = document.getElementById("text1").value ;
-				var arr_display = document.getElementById("arr_diaplay") ;
+		    function push(){
+		    	var text1 = document.getElementById("text1").value ;
 				var div = document.createElement("div") ;
 				div.innerHTML = text1 ;
 				div.className = 'arr_block' ;
 				div.onclick = delete_arr_n ;
-				arr_display.insertBefore(div,arr_display.firstChild) ;
+				return div ;
+		    }
+			function left_push(){
+				var arr_display = document.getElementById("arr_diaplay") ;
+				arr_display.insertBefore(push(),arr_display.firstChild) ;
 			}
 			function right_push(){
-				var text1 = document.getElementById("text1").value ;
 				var arr_dis = document.getElementById("arr_diaplay") ;
-				var div = document.createElement("div") ;
-				div.innerHTML = text1 ;
-				div.className = 'arr_block' ;
-				div.onclick = delete_arr_n ;
-				arr_dis.appendChild(div) ;
+				arr_dis.appendChild(push()) ;
 			}
 			function left_pop(){
 				var arr_dis = document.getElementById("arr_diaplay") ;
