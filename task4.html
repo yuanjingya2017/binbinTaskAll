@@ -16,11 +16,11 @@
 		<script type="text/javascript">
 		    function push(){
 		    	var text1 = document.getElementById("text1").value ;
-				var div = document.createElement("div") ;
-				div.innerHTML = text1 ;
-				div.className = 'arr_block' ;
-				div.onclick = delete_arr_n ;
-				return div ;
+			var div = document.createElement("div") ;
+			div.innerHTML = text1 ;
+			div.className = 'arr_block' ;
+			div.onclick = delete_arr_n ;
+			return div ;
 		    }
 			function left_push(){
 				var arr_display = document.getElementById("arr_diaplay") ;
@@ -55,14 +55,14 @@
 			function delete_arr_n(){
 //				var arr_display = document.getElementById("arr_diaplay") ;
 //				alert(arr_display.childNodes.length) ;
-                alert(this.innerHTML) ;
-//              alert(event) ;
-                this.parentNode.removeChild(this) ;
+				alert(this.innerHTML) ;
+//                              alert(event) ;
+                                this.parentNode.removeChild(this) ;
 			}
 			document.getElementById("right_push").addEventListener("click",right_push);
-		    document.getElementById("left_push").addEventListener("click",left_push);
-		    document.getElementById("right_pop").addEventListener("click",right_pop);
-		    document.getElementById("left_pop").addEventListener("click",left_pop);
+			document.getElementById("left_push").addEventListener("click",left_push);
+		        document.getElementById("right_pop").addEventListener("click",right_pop);
+		        document.getElementById("left_pop").addEventListener("click",left_pop);
 		</script>
 	</body>
 </html>
