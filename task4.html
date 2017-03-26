@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/CD50.css" />
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input id="text1" type="text" />
+		<input id="left_push" type="button" value="左侧入" />
+		<input id="right_push" type="button" value="右侧入" />
+		<input id="left_pop" type="button" value="左侧出" />
+		<input id="right_pop" type="button" value="右侧出" />
+		<div id="arr_diaplay">
+		</div>
+		<script type="text/javascript">
+			function left_push(){
+				var text1 = document.getElementById("text1").value ;
+				var arr_display = document.getElementById("arr_diaplay") ;
+				var div = document.createElement("div") ;
+				div.innerHTML = text1 ;
+				div.className = 'arr_block' ;
+				div.onclick = delete_arr_n ;
+				arr_display.insertBefore(div,arr_display.firstChild) ;
+			}
+			function right_push(){
+				var text1 = document.getElementById("text1").value ;
+				var arr_dis = document.getElementById("arr_diaplay") ;
+				var div = document.createElement("div") ;
+				div.innerHTML = text1 ;
+				div.className = 'arr_block' ;
+				div.onclick = delete_arr_n ;
+				arr_dis.appendChild(div) ;
+			}
+			function left_pop(){
+				var arr_dis = document.getElementById("arr_diaplay") ;
+				var firstchild1 = arr_dis.firstChild ;
+				if(firstchild1.tagName=='BUTTON'){
+					alert(firstchild1.innerText) ;
+					arr_dis.removeChild(firstchild1) ;
+				}
+				else{
+					arr_dis.removeChild(firstchild1) ;
+				}
+			}
+			function right_pop(arr){
+				var arr_dis = document.getElementById("arr_diaplay") ;
+				var lastchild1 = arr_dis.lastChild;
+				if(lastchild1.tagName=='BUTTON'){
+					alert(lastchild1.innerText) ;
+					arr_dis.removeChild(lastchild1) ;
+				}
+				else{
+					arr_dis.removeChild(lastchild1) ;
+				}
+			}
+			function delete_arr_n(){
+//				var arr_display = document.getElementById("arr_diaplay") ;
+//				alert(arr_display.childNodes.length) ;
+                alert(this.innerHTML) ;
+//              alert(event) ;
+                this.parentNode.removeChild(this) ;
+			}
+			document.getElementById("right_push").addEventListener("click",right_push);
+		    document.getElementById("left_push").addEventListener("click",left_push);
+		    document.getElementById("right_pop").addEventListener("click",right_pop);
+		    document.getElementById("left_pop").addEventListener("click",left_pop);
+		</script>
+	</body>
+</html>
